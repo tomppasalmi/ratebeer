@@ -132,7 +132,7 @@ class Beer(object):
         else:
             self.brewed_at = None
         try:
-            self.overall_rating = int(soup.find('span', text='overall').next_sibling.next_sibling.text)
+            self.overall_rating = int(soup.find(itemprop='ratingValue').text.strip())
         except ValueError: # 'n/a'
             self.overall_rating = None
         except AttributeError:
